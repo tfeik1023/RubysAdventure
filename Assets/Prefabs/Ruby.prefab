@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2233893663215446210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,6 +104,10 @@ MonoBehaviour:
   maxHealth: 5
   timeInvincible: 2
   projectilePrefab: {fileID: 0}
+  throwSound: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
+  hitSound: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
+  HealthRecievePrefab: {fileID: 7376713122756680506, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+  HealthDownPrefab: {fileID: 8050956501933577639, guid: 8693160145a402f438f3c84984dd11c1, type: 3}
 --- !u!50 &6385651497180670836
 Rigidbody2D:
   serializedVersion: 4
@@ -265,3 +270,69 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &8745774916746097639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 95694458479063524}
+    m_Modifications:
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.540436
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680504, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: m_Name
+      value: HealthReceiveEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376713122756680506, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+--- !u!4 &2233893663215446210 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7376713122756680485, guid: ec5fc66b45a8c054a87364e1454c4b2c, type: 3}
+  m_PrefabInstance: {fileID: 8745774916746097639}
+  m_PrefabAsset: {fileID: 0}

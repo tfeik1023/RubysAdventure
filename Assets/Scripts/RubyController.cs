@@ -27,6 +27,9 @@ public class RubyController : MonoBehaviour
     public AudioClip throwSound;
     public AudioClip hitSound;
 
+    public ParticleSystem HealthRecievePrefab;
+    public ParticleSystem HealthDownPrefab;
+
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -38,6 +41,7 @@ public class RubyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -123,10 +127,16 @@ public class RubyController : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
-
+            ParticleSystem HealthDownEffect = Instantiate(HealthDownPrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             PlaySound(hitSound);
-        }
 
+        }
+        if (amount > 0)
+        {
+            ParticleSystem HealthRecieveEffect = Instantiate(HealthRecievePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        }
+        
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
