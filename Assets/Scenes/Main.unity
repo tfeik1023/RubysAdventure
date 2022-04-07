@@ -13538,7 +13538,7 @@ PrefabInstance:
     - target: {fileID: 95694458479063525, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: musicClipOne
       value: 
-      objectReference: {fileID: 8300000, guid: e406c04157c663a43b859646b7ad3c2a, type: 3}
+      objectReference: {fileID: 8300000, guid: 907b762ee15eed54a9ff7108593487a2, type: 3}
     - target: {fileID: 95694458479063525, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: musicClipTwo
       value: 
@@ -13561,7 +13561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547050296211167246, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: Loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2547050296211167246, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: m_Pitch
@@ -13569,12 +13569,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547050296211167246, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: m_Volume
-      value: 0.362
+      value: 0.421
       objectReference: {fileID: 0}
     - target: {fileID: 2547050296211167246, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2547050296211167246, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e406c04157c663a43b859646b7ad3c2a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd2db2c9bf4d244ba8d4ce189ad04ef, type: 3}
 --- !u!1001 &534102316568159470

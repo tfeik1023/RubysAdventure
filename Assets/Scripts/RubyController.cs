@@ -63,6 +63,11 @@ public class RubyController : MonoBehaviour
         gameOverText.SetActive(false);
         youLoseText.SetActive(false);
 
+        if (gameOver == false)
+        {
+            musicSource.loop = true;
+        }
+
     }
 
     // Update is called once per frame
@@ -149,14 +154,9 @@ public class RubyController : MonoBehaviour
                 }
             }
         }
-        if (health > 0)
-        {
-          if (score < 4)
-          {
-              musicSource.clip = musicClipOne;
-              musicSource.PlayOneShot(musicClipOne);
-          }  
-        }
+        
+         
+        
 
 
     }
