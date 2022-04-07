@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class RubyController : MonoBehaviour
@@ -20,6 +21,9 @@ public class RubyController : MonoBehaviour
     public int score;
     public TextMeshProUGUI scoreText;
     public GameObject gameOverText;
+    public GameObject youLoseText;
+
+    public bool gameOver = false;
 
     float horizontal;
     float vertical;
@@ -37,6 +41,13 @@ public class RubyController : MonoBehaviour
 
     AudioSource audioSource;
 
+    public AudioSource musicSource;
+
+    public AudioClip musicClipOne;
+    public AudioClip musicClipTwo;
+    public AudioClip musicClipThree;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +61,8 @@ public class RubyController : MonoBehaviour
         score = 0;
 
         gameOverText.SetActive(false);
+        youLoseText.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -102,7 +115,50 @@ public class RubyController : MonoBehaviour
         if (score >= 4)
         {
             gameOverText.SetActive(true);
+            gameOver = true;
+            
+            
+
+            musicSource.clip = musicClipTwo;
+            musicSource.PlayOneShot(musicClipTwo);
+            
+            if (Input.GetKey(KeyCode.R))
+            {
+                if (gameOver == true)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+            }
+
         }
+
+        if (health <= 0)
+        {
+            youLoseText.SetActive(true);
+            gameOver = true;
+            speed = 0;
+
+            musicSource.clip = musicClipThree;
+            musicSource.PlayOneShot(musicClipThree);
+
+            if (Input.GetKey(KeyCode.R))
+            {
+                if (gameOver == true)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+            }
+        }
+        if (health > 0)
+        {
+          if (score < 4)
+          {
+              musicSource.clip = musicClipOne;
+              musicSource.PlayOneShot(musicClipOne);
+          }  
+        }
+
+
     }
 
     void FixedUpdate()
@@ -112,6 +168,7 @@ public class RubyController : MonoBehaviour
         position.y = position.y + speed * vertical * Time.deltaTime;
 
         rigidbody2d.MovePosition(position);
+
     }
 
     void Launch()
@@ -158,6 +215,7 @@ public class RubyController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+
     }
 
     public void ChangeScore(int scoreAmount)
