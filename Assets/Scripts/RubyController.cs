@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RubyController : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class RubyController : MonoBehaviour
     float invincibleTimer;
 
     Rigidbody2D rigidbody2d;
+    public int score;
+    public TextMeshProUGUI scoreText;
+    public GameObject gameOverText;
+
     float horizontal;
     float vertical;
 
@@ -42,6 +47,9 @@ public class RubyController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        score = 0;
+
+        gameOverText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,6 +99,10 @@ public class RubyController : MonoBehaviour
             Application.Quit();
         }
 
+        if (score >= 4)
+        {
+            gameOverText.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -142,9 +154,17 @@ public class RubyController : MonoBehaviour
         UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
     }
 
+     
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
     }
+
+    public void ChangeScore(int scoreAmount)
+    {
+        score = scoreAmount + score;
+        scoreText.text = "Score" + score.ToString();
+    }
+
 }
 

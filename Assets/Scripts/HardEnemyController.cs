@@ -14,6 +14,8 @@ public class HardEnemyController : MonoBehaviour
     int direction = 1;
 
     bool broken = true;
+
+    private RubyController rubyController;
     Animator animator;
 
     // Start is called before the first frame update
@@ -22,6 +24,17 @@ public class HardEnemyController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
+
+        GameObject rubyControllerObject = GameObject.FindWithTag("RubyController");
+        if (rubyControllerObject != null)
+        {
+            rubyController = rubyControllerObject.GetComponent<RubyController>();
+            print ("Found the RubyController Script!");
+        }
+        if (rubyController == null)
+        {
+            print ("Cannot find GameObject Script");
+        }
     }
 
     // Update is called once per frame
@@ -80,6 +93,11 @@ public class HardEnemyController : MonoBehaviour
         broken = false;
         rigidbody2D.simulated = false;
         animator.SetTrigger("Fixed");
+
+        if (rubyController != null)
+        {
+            rubyController.ChangeScore(1);
+        }
 
         smokeEffect.Stop();
     }
