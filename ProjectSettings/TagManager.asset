@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - RubyController
+  - Cog
   layers:
   - Default
   - TransparentFX

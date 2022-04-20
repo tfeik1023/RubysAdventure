@@ -23,6 +23,9 @@ public class RubyController : MonoBehaviour
     public GameObject gameOverText;
     public GameObject youLoseText;
 
+    public int cogs;
+    public TextMeshProUGUI cogText;
+
     public bool gameOver = false;
 
     float horizontal;
@@ -70,6 +73,10 @@ public class RubyController : MonoBehaviour
             musicSource.loop = true;
         }
 
+        cogs = 4;
+
+        SetCogText();
+
     }
 
     // Update is called once per frame
@@ -99,8 +106,15 @@ public class RubyController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            Launch();
+            if (cogs >= 1)
+            {
+                Launch();
+                cogs = cogs - 1;
+
+                SetCogText();
+            }
         }
+            
 
         if (Input.GetKeyDown(KeyCode.X))
         {   
@@ -173,6 +187,11 @@ public class RubyController : MonoBehaviour
 
     }
 
+    void SetCogText()
+    {
+        cogText.text = "Cogs: " + cogs.ToString();
+    }
+
     void FixedUpdate()
     {
         Vector2 position = rigidbody2d.position;
@@ -181,6 +200,18 @@ public class RubyController : MonoBehaviour
 
         rigidbody2d.MovePosition(position);
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Cog"))
+        {
+           other.gameObject.SetActive(false); 
+           cogs = cogs + 4;
+
+           SetCogText();
+        }
+        
     }
 
     void Launch()
