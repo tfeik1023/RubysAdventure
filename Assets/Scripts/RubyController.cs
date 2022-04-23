@@ -6,7 +6,9 @@ using TMPro;
 
 public class RubyController : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed;
+    public float boostTimer;
+    private bool boosting;
 
     public int maxHealth = 5;
     public float timeInvincible = 2.0f;
@@ -22,6 +24,8 @@ public class RubyController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject gameOverText;
     public GameObject youLoseText;
+    public GameObject speedText;
+    public GameObject invincibiltyText;
 
     public int cogs;
     public TextMeshProUGUI cogText;
@@ -51,6 +55,9 @@ public class RubyController : MonoBehaviour
     public AudioClip musicClipOne;
     public AudioClip musicClipTwo;
     public AudioClip musicClipThree;
+
+    public AudioClip collectedClip;
+    public AudioClip collectedClip2;
     
 
     // Start is called before the first frame update
@@ -67,6 +74,8 @@ public class RubyController : MonoBehaviour
 
         gameOverText.SetActive(false);
         youLoseText.SetActive(false);
+        speedText.SetActive(false);
+        invincibiltyText.SetActive(false);
 
         if (gameOver == false)
         {
@@ -76,6 +85,10 @@ public class RubyController : MonoBehaviour
         cogs = 4;
 
         SetCogText();
+
+        speed = 3.0f;
+        boostTimer = 0;
+        boosting = false;
 
     }
 
@@ -93,6 +106,18 @@ public class RubyController : MonoBehaviour
             lookDirection.Normalize();
         }
 
+        if (boosting)
+        {
+            boostTimer += Time.deltaTime;
+            if(boostTimer >= 4)
+            {
+                speed = 3.0f;
+                boostTimer = 0;
+                boosting = false;
+                speedText.SetActive(false);
+            }
+        }
+
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
@@ -102,6 +127,11 @@ public class RubyController : MonoBehaviour
             invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
                 isInvincible = false;
+        }
+
+        if (isInvincible == false)
+        {
+            invincibiltyText.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -124,6 +154,7 @@ public class RubyController : MonoBehaviour
                 if (score >= 4)
                 {
                     SceneManager.LoadScene("Scene2");
+                    
                 }
                 else 
                 {
@@ -131,6 +162,7 @@ public class RubyController : MonoBehaviour
                 if (character != null)
                 {
                     character.DisplayDialog();
+                    PlaySound(collectedClip);
                 }
                 }
             }
@@ -147,7 +179,7 @@ public class RubyController : MonoBehaviour
             
             if (level == 2)
             {
-                
+               
             }
             gameOver = true;
                 musicSource.clip = musicClipTwo;
@@ -210,6 +242,21 @@ public class RubyController : MonoBehaviour
            cogs = cogs + 4;
 
            SetCogText();
+        }
+        if(other.tag == "Speed")
+        {
+            boosting = true;
+            speed = 5.0f;
+            Destroy(other.gameObject);
+            speedText.SetActive(true);
+        }
+        if(other.tag == "Invincible")
+        {
+            isInvincible = true;
+            invincibiltyText.SetActive(true);
+            invincibleTimer = timeInvincible;
+    
+            Destroy(other.gameObject); 
         }
         
     }

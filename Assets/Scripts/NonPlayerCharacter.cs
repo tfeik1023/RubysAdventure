@@ -7,6 +7,7 @@ public class NonPlayerCharacter : MonoBehaviour
     public float displayTime = 4.0f;
     public GameObject dialogBox;
     float timerDisplay;
+    public AudioClip collectedClip;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,16 @@ public class NonPlayerCharacter : MonoBehaviour
 
     public void DisplayDialog()
     {
+        
         timerDisplay = displayTime;
         dialogBox.SetActive(true);
+
+    }
+
+    void Collider2D()
+    {
+        
+
+        
     }
 }

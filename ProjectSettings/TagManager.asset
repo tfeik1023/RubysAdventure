@@ -6,6 +6,8 @@ TagManager:
   tags:
   - RubyController
   - Cog
+  - Speed
+  - Invincible
   layers:
   - Default
   - TransparentFX
