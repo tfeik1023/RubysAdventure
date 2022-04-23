@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AmmoController
     - DamageZone
     - EnemyController
     - HardEnemyController
@@ -19,6 +20,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridBrushEditor
@@ -26,6 +28,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.PaintableSceneViewGrid
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
@@ -97,53 +100,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 654}
     - Class: 114
-      Script: {instanceID: 1552}
+      Script: {instanceID: 1488}
     - Class: 114
-      Script: {instanceID: 1902}
+      Script: {instanceID: 1554}
     - Class: 114
-      Script: {instanceID: 2260}
+      Script: {instanceID: 1904}
     - Class: 114
-      Script: {instanceID: 2328}
+      Script: {instanceID: 2262}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2330}
     - Class: 114
-      Script: {instanceID: 2738}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 2790}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 2808}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2880}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 2984}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3490}
+      Script: {instanceID: 3232}
     - Class: 114
-      Script: {instanceID: 3646}
+      Script: {instanceID: 3492}
     - Class: 114
-      Script: {instanceID: 4196}
+      Script: {instanceID: 3648}
     - Class: 114
-      Script: {instanceID: 4552}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4564}
+      Script: {instanceID: 4554}
     - Class: 114
-      Script: {instanceID: 4738}
+      Script: {instanceID: 4566}
     - Class: 114
-      Script: {instanceID: 5108}
+      Script: {instanceID: 4740}
     - Class: 114
-      Script: {instanceID: 5192}
+      Script: {instanceID: 5110}
     - Class: 114
-      Script: {instanceID: 5346}
+      Script: {instanceID: 5194}
     - Class: 114
-      Script: {instanceID: 5536}
+      Script: {instanceID: 5348}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5538}
+    - Class: 114
+      Script: {instanceID: 5660}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -212,45 +217,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 654}
     - Class: 114
-      Script: {instanceID: 1552}
+      Script: {instanceID: 1488}
     - Class: 114
-      Script: {instanceID: 1902}
+      Script: {instanceID: 1554}
     - Class: 114
-      Script: {instanceID: 2260}
+      Script: {instanceID: 1904}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2262}
     - Class: 114
-      Script: {instanceID: 2738}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 2790}
+      Script: {instanceID: 2740}
     - Class: 114
-      Script: {instanceID: 2808}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2880}
     - Class: 114
-      Script: {instanceID: 3036}
+      Script: {instanceID: 2984}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3230}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3490}
+      Script: {instanceID: 3232}
     - Class: 114
-      Script: {instanceID: 3646}
+      Script: {instanceID: 3492}
     - Class: 114
-      Script: {instanceID: 4196}
+      Script: {instanceID: 3648}
     - Class: 114
-      Script: {instanceID: 4552}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4564}
+      Script: {instanceID: 4554}
     - Class: 114
-      Script: {instanceID: 4738}
+      Script: {instanceID: 4566}
     - Class: 114
-      Script: {instanceID: 5346}
+      Script: {instanceID: 4740}
     - Class: 114
-      Script: {instanceID: 5658}
+      Script: {instanceID: 5194}
+    - Class: 114
+      Script: {instanceID: 5348}
+    - Class: 114
+      Script: {instanceID: 5660}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -282,6 +291,12 @@ ScriptsOnlyBuild:
     - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: e8565efb283f358a6685935463171ae7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AmmoController
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -986,7 +1001,7 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
-      Hash: 3520d9b963d9c53fa50efe61cf8f7ffe
+      Hash: e3ab24dcc96a60e934b6c766fbd74fb7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NonPlayerCharacter
@@ -1010,7 +1025,7 @@ ScriptsOnlyBuild:
     className: SpriteLibraryAsset
   - hash:
       serializedVersion: 2
-      Hash: 23102f7d2ae751dce38202bf73c6abd2
+      Hash: aa681a62ee4c6d14dbbd883da44090cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RubyController
@@ -1132,4 +1147,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Main.unity
   - Assets/Scenes/Scene2.unity
-  playerPath: C:/Users/tfeik/OneDrive/Desktop/Challenge3GitHub/Build/dig3480-s22-t3-rubys_new_adventure-tfeik1023.exe
+  playerPath: C:/Users/tfeik/OneDrive/Desktop/FinalDIG/Build/dig3480-s22-t3-rubys_new_adventure-tfeik1023.exe
